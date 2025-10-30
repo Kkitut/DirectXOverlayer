@@ -214,7 +214,7 @@ namespace DirectXOverlayer
                     var str = Marshal.PtrToStringAnsi(Wrapper.GetStringWithReference(curEditingText));
                     
                     Wrapper.SetStringWithReference(curEditingText, GUI.TextArea(new Rect(Screen.width / 2 - 250 * Screen.height / 900, Screen.height / 2 - 250 * Screen.height / 900, 500 * Screen.height / 900, 500 * Screen.height / 900), str));
-                    if (GUI.Button(new Rect(Screen.width / 2 - 50 * Screen.height / 900, Screen.height / 2 + 300 * Screen.height / 900, 100 * Screen.height / 900, 50 * Screen.height / 900), translations[language]["Done"]))
+                    if (GUI.Button(new Rect(Screen.width / 2 - 50 * Screen.height / 900, Screen.height / 2 + 300 * Screen.height / 900, 100 * Screen.height / 900, 50 * Screen.height / 900), translations[language]["DONE"]))
                     {
                         isEditingText = false;
                     }
