@@ -465,6 +465,7 @@
   </Target>
   <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
   <PropertyGroup>
-    <PreBuildEvent>$(SolutionDir)\TranslationDownloader\bin\Debug\net8.0\TranslationDownloader.exe C:\Program Files (x86)\Steam\steamapps\common\A Dance of Fire and Ice\Mods\DirectXOverlayer</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
