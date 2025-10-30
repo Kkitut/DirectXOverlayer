@@ -52,9 +52,24 @@ namespace DirectXOverlayer
 
         public static void Load(UnityModManager.ModEntry entry)
         {
-            var dllpath = Path.Combine(entry.Path, "DirectXOverlayer.dll");
-            entry.Logger.Log(dllpath);
-            var handle = LoadLibraryW(dllpath);
+            
+            if(string.IsNullOrEmpty(entry?.Path)) {
+                entry?.Logger?.Log("Invalid entry path.");
+                return;
+            }
+            string dllPath;
+            try {
+                dllPath = Path.Combine(entry.Path, "DirectXOverlayer.dll");
+            } catch(Exception ex) {
+                entry?.Logger?.Log($"Error processing DLL path: {ex.Message}");
+                return;
+            }
+            if(!File.Exists(dllPath)) {
+                 entry.Logger.Log($"DLL not found: {dllPath}");
+                 return;
+            }
+            entry.Logger.Log($"DLL path: {dllPath}");
+            var handle = LoadLibraryW(dllPath);
             if (handle == IntPtr.Zero)
             {
                 throw new Exception("Handle Is Null!");
