@@ -152,16 +152,6 @@ namespace DirectXOverlayer
             if (GUILayout.Button("English")) language = "ENGLISH";
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
-
-            GUILayout.Space(10);
-
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button(translations[language]["OpenWiki"]))
-            {
-                Application.OpenURL("http://wiki.dxoverlayer.kro.kr");
-            }
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
             GUILayout.Space(10);
 
             if (!Wrapper.isInitialized)
