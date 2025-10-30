@@ -270,13 +270,13 @@ void d3d11_impl::Render(Renderer* renderer)
 
 		ImGui::PushFont(GetDefaultFont(25.0f * io.DisplaySize.y / 900.0f));
 		ImGui::SetNextWindowSize(ImVec2(io.DisplaySize.x / 5, io.DisplaySize.y / 2));
-		ImGui::Begin(GetTranslation("DXOverlayerSetting"), NULL, ImGuiWindowFlags_NoResize);
-		if (ImGui::Button(GetTranslation("Done")) || ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_Escape))) {
+		ImGui::Begin(GetTranslation("DXOVERLAYER_SETTING"), NULL, ImGuiWindowFlags_NoResize);
+		if (ImGui::Button(GetTranslation("DONE")) || ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_Escape))) {
 			((void(*)())apiset["EndSetting"])();
 		}
 
-		if (ImGui::Button(GetTranslation("AddText"))) {
-			auto name = std::string(GetTranslation("Text")) + " " + std::to_string(elements.size());
+		if (ImGui::Button(GetTranslation("ADD_TEXT"))) {
+			auto name = std::string(GetTranslation("TEXT")) + " " + std::to_string(elements.size());
 			auto elem = new TextElement(name);
 			elem->x = 0.5;
 			elem->y = 0.5;
@@ -285,9 +285,9 @@ void d3d11_impl::Render(Renderer* renderer)
 			Log((name + " added").c_str());
 		}
 
-		ImGui::Checkbox(GetTranslation("SimulateInGame"), &simulateInGame);
+		ImGui::Checkbox(GetTranslation("SIMULATE_INGAME"), &simulateInGame);
 
-		ImGui::TextUnformatted(GetTranslation("Elements"));
+		ImGui::TextUnformatted(GetTranslation("ELEMENTS"));
 
 
 		std::queue<UIElement*> deleted;
@@ -300,15 +300,15 @@ void d3d11_impl::Render(Renderer* renderer)
 
 			ImGui::TextUnformatted(elem->name.c_str());
 			ImGui::SameLine();
-			if (ImGui::Button((std::string(GetTranslation("EditName")) + "##" + addrstr).c_str())) {
+			if (ImGui::Button((std::string(GetTranslation("EDIT_NAME")) + "##" + addrstr).c_str())) {
 				OpenEditText(&elem->name);
 			}
 			ImGui::SameLine();
-			if (ImGui::Button((std::string(GetTranslation("Settings")) + "##" + addrstr).c_str())) {
+			if (ImGui::Button((std::string(GetTranslation("SETTINGS")) + "##" + addrstr).c_str())) {
 				elem->isSettingOpen = true;
 			}
 			ImGui::SameLine();
-			if (ImGui::Button((std::string(GetTranslation("Delete")) + "##" + addrstr).c_str())) {
+			if (ImGui::Button((std::string(GetTranslation("DELETE")) + "##" + addrstr).c_str())) {
 				deleted.push(elem);
 			}
 		}
@@ -332,13 +332,13 @@ void d3d11_impl::Render(Renderer* renderer)
 
 				ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x / 2, io.DisplaySize.y / 2), ImGuiCond_Appearing, ImVec2(0.5, 0.5));
 				ImGui::SetNextWindowSize(ImVec2(io.DisplaySize.x / 5, io.DisplaySize.y / 2));
-				ImGui::Begin((elem->name + " " + std::string(GetTranslation("Settings")) + "###" + addrstr + "_Settings").c_str(), NULL, ImGuiWindowFlags_NoResize);
+				ImGui::Begin((elem->name + " " + std::string(GetTranslation("SETTINGS")) + "###" + addrstr + "_Settings").c_str(), NULL, ImGuiWindowFlags_NoResize);
 
-				if (ImGui::Button(GetTranslation("Close"))) {
+				if (ImGui::Button(GetTranslation("CLOSE"))) {
 					elem->isSettingOpen = false;
 				}
 
-				ImGui::Checkbox(GetTranslation("UseTextInput"), &elem->useTextInput);
+				ImGui::Checkbox(GetTranslation("USE_TEXT_INPUT"), &elem->useTextInput);
 
 				if (elem->useTextInput) {
 					ImGui::InputFloat("X", &elem->x);

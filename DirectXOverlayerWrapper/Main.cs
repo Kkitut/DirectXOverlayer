@@ -31,7 +31,7 @@ namespace DirectXOverlayer
         public static Texture2D logo;
 
         public static Dictionary<string, Dictionary<string, string>> translations = new();
-        public static string language = "KOREAN";
+        public static string language = "ENGLISH";
 
         public static Dictionary<string, (Func<object>, bool, object)> tags = new();
 
@@ -62,8 +62,8 @@ namespace DirectXOverlayer
             Main.entry = entry;
 
             entry.Logger.Log("Loading Translation");
-            translations["KOREAN"] = JObject.Parse(File.ReadAllText(Path.Combine(entry.Path, "KOREAN.language"))).ToObject<Dictionary<string, string>>();
-            translations["ENGLISH"] = JObject.Parse(File.ReadAllText(Path.Combine(entry.Path, "ENGLISH.language"))).ToObject<Dictionary<string, string>>();
+            translations["KOREAN"] = JObject.Parse(File.ReadAllText(Path.Combine(entry.Path, "Korean.json"))).ToObject<Dictionary<string, string>>();
+            translations["ENGLISH"] = JObject.Parse(File.ReadAllText(Path.Combine(entry.Path, "English.json"))).ToObject<Dictionary<string, string>>();
 
             // Load Tags
             LoadTag<HexCodes>();
@@ -148,21 +148,21 @@ namespace DirectXOverlayer
             GUILayout.Space(10);
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("한국어")) language = "KOREAN";
             if (GUILayout.Button("English")) language = "ENGLISH";
+            if (GUILayout.Button("한국어")) language = "KOREAN";            
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
             GUILayout.Space(10);
 
             if (!Wrapper.isInitialized)
             {
-                GUILayout.Label($"<color=yellow>{translations[language]["FontBrokenAlert"]}</color>");
+                GUILayout.Label($"<color=yellow>{translations[language]["FONT_BROKEN_ALERT"]}</color>");
                 GUILayout.Space(10);
             }
 
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button(translations[language]["OpenSettings"]))
+            if (GUILayout.Button(translations[language]["OPEN_SETTINGS"]))
             {
                 //Input.imeCompositionMode = IMECompositionMode.On;
                 Wrapper.isSetting = true;

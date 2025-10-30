@@ -18,10 +18,10 @@ rapidjson::Value* TextElement::Save(rapidjson::Document* savefile)
 {
 	auto v = new rapidjson::Value(rapidjson::kObjectType);
 	auto allocator = savefile->GetAllocator();
-	v->AddMember(rapidjson::Value("text"), rapidjson::Value(text.c_str(), allocator), allocator);
-	v->AddMember(rapidjson::Value("textNotPlaying"), rapidjson::Value(textNotPlaying.c_str(), allocator), allocator);
-	v->AddMember(rapidjson::Value("fontSize"), rapidjson::Value(fontSize), allocator);
-	v->AddMember(rapidjson::Value("textPivotX"), rapidjson::Value(textPivotX), allocator);
+	v->AddMember(rapidjson::Value("TEXT"), rapidjson::Value(text.c_str(), allocator), allocator);
+	v->AddMember(rapidjson::Value("TEXTNOTPLAYING"), rapidjson::Value(textNotPlaying.c_str(), allocator), allocator);
+	v->AddMember(rapidjson::Value("FONTSIZE"), rapidjson::Value(fontSize), allocator);
+	v->AddMember(rapidjson::Value("TEXTPIVOTX"), rapidjson::Value(textPivotX), allocator);
 
 	return v;
 }
@@ -228,13 +228,13 @@ void TextElement::Render() {
 }
 
 void TextElement::RenderSettingsUI() {
-	if (ImGui::Button(GetTranslation("TextEdit"))) {
+	if (ImGui::Button(GetTranslation("EDIT_TEXT"))) {
 		OpenEditText(&text);
 	}
-	if (ImGui::Button(GetTranslation("NotPlayingTextEdit"))) {
+	if (ImGui::Button(GetTranslation("EDIT_NOT_PLAYING_TEXT"))) {
 		OpenEditText(&textNotPlaying);
 	}
-	ImGui::InputFloat(GetTranslation("FontSize"), &fontSize);
+	ImGui::InputFloat(GetTranslation("FONT_SIZE"), &fontSize);
 
 	if (useTextInput) {
 		ImGui::InputFloat("Text Pivot X", &textPivotX);
