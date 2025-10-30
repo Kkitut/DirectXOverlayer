@@ -9,17 +9,17 @@ namespace DirectXOverlayer.Tags
 {
     public class JudgeTags
     {
-        [Tag("CurTE", Dummy: 1)]
+        [Tag("CurTE", Dummy: 0)]
         public static double TE() => GetCurDiffCount(HitMargin.TooEarly);
-        [Tag("CurVE", Dummy: 3)]
+        [Tag("CurVE", Dummy: 0)]
         public static double VE() => GetCurDiffCount(HitMargin.VeryEarly);
-        [Tag("CurEP", Dummy: 101)]
+        [Tag("CurEP", Dummy: 0)]
         public static double EP() => GetCurDiffCount(HitMargin.EarlyPerfect);
-        [Tag("CurP", Dummy: 1250)]
+        [Tag("CurP", Dummy: 0)]
         public static double P() => GetCurDiffCount(HitMargin.Perfect);
-        [Tag("CurLP", Dummy: 81)]
+        [Tag("CurLP", Dummy: 0)]
         public static double LP() => GetCurDiffCount(HitMargin.LatePerfect);
-        [Tag("CurVL", Dummy: 1)]
+        [Tag("CurVL", Dummy: 0)]
         public static double VL() => GetCurDiffCount(HitMargin.VeryLate);
         [Tag("CurTL", Dummy: 0)]
         public static double TL() => GetCurDiffCount(HitMargin.TooLate);

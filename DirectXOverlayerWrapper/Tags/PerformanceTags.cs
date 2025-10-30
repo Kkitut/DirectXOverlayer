@@ -10,7 +10,7 @@ namespace DirectXOverlayer.Tags
 {
     public class PerformanceTags
     {
-        [FieldTag("Fps", true, Dummy: 144.3712)]
+        [FieldTag("Fps", true, Dummy: float.NaN)]
         public static float Fps = 0;
     }
 }

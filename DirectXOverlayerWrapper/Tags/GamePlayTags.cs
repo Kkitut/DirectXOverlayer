@@ -9,29 +9,29 @@ namespace DirectXOverlayer.Tags
 {
     public class GamePlayTags
     {
-        [Tag("Progress", Dummy: 56.8135)]
+        [Tag("Progress", Dummy: double.NaN)]
         public static double Progress()
         {
             return (double)((!scrLevelMaker.instance) ? 0f : scrController.instance.percentComplete) * 100.0;
         }
 
-        [Tag("Accuracy", Dummy: 101.1)]
+        [Tag("Accuracy", Dummy: double.NaN)]
         public static double Accuracy()
         {
             return scrController.instance.mistakesManager.percentAcc * 100.0;
         }
 
-        [Tag("XAccuracy", Dummy: 99.3)]
+        [Tag("XAccuracy", Dummy: double.NaN)]
         public static double XAccuracy()
         {
             return scrController.instance.mistakesManager.percentXAcc * 100.0;
         }
 
-        [FieldTag("RealBpm", Dummy: 200)]
+        [FieldTag("RealBpm", Dummy: double.NaN)]
         public static double RealBpm;
-        [FieldTag("TileBpm", Dummy: 100)]
+        [FieldTag("TileBpm", Dummy: double.NaN)]
         public static double TileBpm;
-        [FieldTag("ReqKps", Dummy: 200d / 60d)]
+        [FieldTag("ReqKps", Dummy: double.NaN)]
         public static double ReqKps;
     }
 }
