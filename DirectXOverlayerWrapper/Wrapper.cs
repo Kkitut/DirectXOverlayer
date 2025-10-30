@@ -169,7 +169,6 @@ namespace DirectXOverlayer
 
         static void OpenEditText(IntPtr txt)
         {
-            Main.entry.Logger.Log("Addr: " + txt);
             Main.curEditingText = txt;
             Main.isEditingText = true;
             
